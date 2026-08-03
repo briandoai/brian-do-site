@@ -23,7 +23,7 @@ export const resourceCategories: ResourceCategory[] = [
     items: [
       {
         emoji: "🎁",
-        title: "The AI Starter Kit — 6 workflows + 30-day tracker",
+        title: "The AI Starter Kit (6 workflows + 30-day tracker)",
         href: "#",
       },
       {
@@ -33,7 +33,7 @@ export const resourceCategories: ResourceCategory[] = [
       },
       {
         emoji: "🧭",
-        title: "Stop Using AI Randomly — the 20-minute setup",
+        title: "Stop Using AI Randomly: the 20-minute setup",
         href: "#",
       },
     ],
@@ -63,14 +63,14 @@ export const resourceCategories: ResourceCategory[] = [
     items: [
       { emoji: "🤝", title: "Share AI Workflows With Your Team", href: "#" },
       { emoji: "🔁", title: "Build AI Habits That Actually Stick", href: "#" },
-      { emoji: "🛡️", title: "Use AI Safely at Work — What Not to Paste", href: "#" },
+      { emoji: "🛡️", title: "Use AI Safely at Work: What Not to Paste", href: "#" },
       { emoji: "⭐", title: "Get Visibility by Improving Team Workflows", href: "#" },
     ],
   },
   {
     title: "Tool Tutorials",
     items: [
-      { emoji: "💬", title: "ChatGPT for Work — Starter Guide", href: "#" },
+      { emoji: "💬", title: "ChatGPT for Work: Starter Guide", href: "#" },
       { emoji: "🤖", title: "Claude for Work", href: "#" },
       { emoji: "✨", title: "Gemini for Work", href: "#" },
       { emoji: "📚", title: "NotebookLM for Research", href: "#" },

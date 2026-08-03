@@ -1,41 +1,66 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Brian Do — brand v1
-   Deep Teal on off-white. Inter. Calm, practical AI workbench.
-   Source of truth: brian_do_brand_guide_v1.md
+   Brian Do — brand v2
+   Deep Teal on warm paper. Inter + Doto + JetBrains Mono.
+   Calm, practical AI workbench.
+   Source of truth: Artifacts/brian_do_brand_guide_v2.md
 ----------------------------------------------------------------- */
 
 :root {
   --teal: #0f766e;
   --teal-dark: #0b5952;
-  --charcoal: #111827;
-  --slate: #4b5563;
-  --offwhite: #f9fafb;
-  --border: #e5e7eb;
-  --orange: #f97316;
+
+  /* v2 surfaces — warm. The old cool values are kept as aliases below so
+     existing utility classes (bg-offwhite, text-charcoal) keep working. */
+  --paper: #faf8f2;      /* was --offwhite  #f9fafb */
+  --surface: #f2efe8;    /* code blocks, chips, tinted panels */
+  --ink: #1c1a16;        /* was --charcoal  #111827 */
+  --muted: #6f6a5c;      /* was --slate     #4b5563 */
+  --line: #e3dfd5;       /* was --border    #e5e7eb */
+
+  --orange: #f97316;     /* costs and warnings only */
   --green: #22c55e;
   --white: #ffffff;
+
+  /* Back-compat aliases — prefer the names above in new markup. */
+  --offwhite: var(--paper);
+  --charcoal: var(--ink);
+  --slate: var(--muted);
+  --border: var(--line);
+
+  /* Signature: solid offset shadow, never a blur. */
+  --shadow: 4px 4px 0 var(--ink);
+  --shadow-accent: 4px 4px 0 var(--teal);
 }
 
 @theme inline {
   --color-teal: var(--teal);
   --color-teal-dark: var(--teal-dark);
-  --color-charcoal: var(--charcoal);
-  --color-slate: var(--slate);
-  --color-offwhite: var(--offwhite);
-  --color-border: var(--border);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
   --color-orange: var(--orange);
   --color-green: var(--green);
 
-  --color-background: var(--offwhite);
-  --color-foreground: var(--charcoal);
+  /* aliases */
+  --color-charcoal: var(--ink);
+  --color-slate: var(--muted);
+  --color-offwhite: var(--paper);
+  --color-border: var(--line);
+
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-pixel: var(--font-doto), var(--font-inter), sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, Consolas, monospace;
 }
 
 * {
-  border-color: var(--border);
+  border-color: var(--line);
 }
 
 html {
@@ -43,15 +68,247 @@ html {
 }
 
 body {
-  background: var(--offwhite);
-  color: var(--charcoal);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+/* No orphans. A single word stranded on the last line reads as a mistake, so
+   body copy gets `pretty` (the browser pulls a word down to keep the last line
+   company) and headings get `balance` (lines evened out instead). Applied here
+   rather than per-block so new copy inherits it. */
+p,
+li,
+figcaption,
+blockquote,
+dd,
+summary {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
 /* Selection uses the signature teal */
 ::selection {
   background: color-mix(in srgb, var(--teal) 22%, transparent);
-  color: var(--charcoal);
+  color: var(--ink);
+}
+
+/* ---------------------------------------------------------------
+   Signature devices — see brand guide §4 and §5
+----------------------------------------------------------------- */
+
+/* One word per headline, teal, pixel face. Never two. Never below ~40px. */
+.px {
+  font-family: var(--font-pixel);
+  font-weight: 900;
+  color: var(--teal);
+  font-size: 0.94em;
+  letter-spacing: 0.015em;
+}
+
+/* Same device, on a teal panel — the word goes paper instead of teal. */
+.px-invert {
+  color: var(--white);
+}
+
+/* Tracked uppercase label. Does all the labelling work on the page. */
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted);
+  /* Balanced, not pretty: the wide tracking makes these wrap on narrow screens,
+     and evening the lines beats stranding one long word. */
+  text-wrap: balance;
+}
+
+/* Headlines carrying a pixel word must stay above the ~40px legibility floor.
+   .px renders at 0.94em, so the smallest safe headline size is 2.75rem — that
+   floor is the lower clamp bound and must not be lowered.
+
+   The size is fluid rather than stepped so "Do the annoying parts of your job"
+   keeps fitting on one line as the viewport narrows, instead of dropping "job"
+   onto a row by itself. Below roughly 710px it can't fit at the minimum legible
+   size, so it wraps — text-wrap: balance evens those lines out rather than
+   leaving a one-word orphan. */
+.headline {
+  font-weight: 700;
+  letter-spacing: -0.028em;
+  line-height: 1.06;
+  font-size: clamp(2.75rem, 5.2vw, 3.75rem);
+  text-wrap: balance;
+}
+
+.headline-sm {
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  line-height: 1.1;
+  font-size: 2.75rem;
+}
+
+/* ---------------------------------------------------------------
+   Cards — 10px radius, 1.4px warm-black border, solid offset shadow.
+   Never a blur. See brand guide §4.
+----------------------------------------------------------------- */
+
+.hard {
+  border: 1.4px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+/* The accent promotion: exactly one per section. Marks "start here". */
+.hard-teal {
+  border: 2px solid var(--teal);
+  border-radius: 10px;
+  box-shadow: var(--shadow-accent);
+}
+
+/* Hairline variant for quiet list rows that shouldn't each cast a shadow. */
+.hard-flat {
+  border: 1.4px solid var(--ink);
+  border-radius: 10px;
+}
+
+/* ---------------------------------------------------------------
+   Buttons — the solid shadow presses in rather than lifting.
+----------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 10px;
+  border: 1.4px solid var(--ink);
+  padding: 0.8rem 1.4rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease,
+    background-color 120ms ease;
+}
+
+.btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+}
+
+.btn-secondary {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.btn-secondary:hover {
+  background: var(--surface);
+}
+
+/* On the teal panel the shadow flips to paper so it stays visible. */
+.btn-invert {
+  background: var(--paper);
+  color: var(--teal-dark);
+  border-color: var(--paper);
+  box-shadow: 4px 4px 0 var(--teal-dark);
+}
+
+.btn-invert:hover {
+  background: var(--white);
+  box-shadow: 2px 2px 0 var(--teal-dark);
+}
+
+.btn-invert:active {
+  box-shadow: 0 0 0 var(--teal-dark);
+}
+
+/* ---------------------------------------------------------------
+   Motion — entrance rise and the hero's typewriter caret.
+----------------------------------------------------------------- */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes caret-blink {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Sits after the cycling pixel word. Sized off the headline, not the viewport. */
+.caret {
+  display: inline-block;
+  width: 0.07em;
+  height: 0.82em;
+  margin-left: 0.06em;
+  vertical-align: -0.06em;
+  background: var(--teal);
+  animation: caret-blink 1.05s steps(1, end) infinite;
+}
+
+/* Nothing on this site moves for people who'd rather it didn't. The hero hook
+   also checks this in JS and never starts its timers. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .rise {
+    opacity: 1;
+    animation: none;
+  }
+
+  .caret {
+    animation: none;
+    opacity: 1;
+  }
+
+  .btn:hover,
+  .btn:active {
+    transform: none;
+  }
 }
