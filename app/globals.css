@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Brian Do — brand v1
+   Deep Teal on off-white. Inter. Calm, practical AI workbench.
+   Source of truth: brian_do_brand_guide_v1.md
+----------------------------------------------------------------- */
+
+:root {
+  --teal: #0f766e;
+  --teal-dark: #0b5952;
+  --charcoal: #111827;
+  --slate: #4b5563;
+  --offwhite: #f9fafb;
+  --border: #e5e7eb;
+  --orange: #f97316;
+  --green: #22c55e;
+  --white: #ffffff;
+}
+
+@theme inline {
+  --color-teal: var(--teal);
+  --color-teal-dark: var(--teal-dark);
+  --color-charcoal: var(--charcoal);
+  --color-slate: var(--slate);
+  --color-offwhite: var(--offwhite);
+  --color-border: var(--border);
+  --color-orange: var(--orange);
+  --color-green: var(--green);
+
+  --color-background: var(--offwhite);
+  --color-foreground: var(--charcoal);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--offwhite);
+  color: var(--charcoal);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Selection uses the signature teal */
+::selection {
+  background: color-mix(in srgb, var(--teal) 22%, transparent);
+  color: var(--charcoal);
+}
