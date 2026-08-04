@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
@@ -39,26 +40,25 @@ export default function Home() {
         <section id="community" className="bg-paper">
           <div className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
             <div className="hard bg-teal px-8 py-12 text-center sm:px-12 sm:py-14">
-              <p className="eyebrow text-white/70">Keep going</p>
+              {/* Soft open: the group isn't stood up yet, so this points at
+                  the same email list rather than a dead Skool homepage. */}
+              <p className="eyebrow text-white/70">Opening soon</p>
               <h2 className="headline-sm mx-auto mt-4 max-w-2xl text-white">
                 Compare notes in the <span className="px px-invert">free</span>{" "}
                 community.
               </h2>
               <p className="mx-auto mt-5 max-w-lg text-[1.0625rem] leading-[1.55] text-white/80">
-                Once you&apos;ve got a workflow running, this is where you ask
-                questions, see what other people changed, and find the next
-                one to try.
+                Once you&apos;ve got a workflow running, this is where
+                you&apos;ll ask questions, see what other people changed, and
+                find the next one to try. It opens shortly, and it&apos;s free
+                when it does.
               </p>
-              <a
-                href="https://www.skool.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-invert mt-8"
-              >
-                Join free on Skool →
-              </a>
+              <Link href="/resources" className="btn btn-invert mt-8">
+                Get on the list →
+              </Link>
               <p className="mt-5 text-xs text-white/60">
-                One practical AI workflow you can use at work, every week.
+                Same signup as the library. I&apos;ll send the invite when
+                it&apos;s open.
               </p>
             </div>
           </div>

@@ -88,22 +88,17 @@ export default function LibraryPage() {
           id="community"
           className="hard mt-16 bg-teal px-6 py-9 sm:px-10 sm:py-11"
         >
-          <p className="eyebrow text-white/70">The community</p>
+          {/* Soft open. Anyone reading this already signed up, so there's
+              nothing to ask them for, just tell them what's coming. */}
+          <p className="eyebrow text-white/70">Opening soon</p>
           <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Get the full library plus a free community
+            A free community is on the way
           </h2>
           <p className="mt-3 max-w-xl text-[1.0625rem] leading-[1.55] text-white/80">
-            Trade practical AI workflows with other professionals working on the
-            same problems. Free to join.
+            Somewhere to trade practical AI workflows with other people working
+            on the same problems. You&apos;re already on the list, so the
+            invite will land in your inbox when it opens.
           </p>
-          <a
-            href="https://www.skool.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-invert mt-7"
-          >
-            Join the community, free →
-          </a>
         </div>
       </main>
 
