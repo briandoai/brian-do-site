@@ -2,22 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { resourceCategories } from "../lib/resources";
-import { noOrphan } from "../lib/text";
 
 export const metadata: Metadata = {
   title: "Resource Library",
   description:
-    "Free guides, templates, and workflows to help you use AI at work. Save time, communicate better, become the AI person on your team.",
+    "Free guides, templates, and workflows to help you use AI at work. Enter your email to unlock the library.",
 };
 
-export default function ResourcesPage() {
+export default function ResourcesGatePage() {
   return (
     <>
       <Header />
 
       <main className="mx-auto w-full max-w-3xl flex-1 px-5 py-14 sm:py-20">
-        {/* Back link */}
         <Link
           href="/"
           className="mb-10 inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors hover:text-ink"
@@ -25,85 +22,84 @@ export default function ResourcesPage() {
           <span aria-hidden>←</span> Back
         </Link>
 
-        {/* Page header */}
-        <div className="mb-12">
+        <div className="mb-10 text-center">
           <p className="eyebrow">Free resource library</p>
-          <h1 className="headline mt-4 text-ink">
+          <h1 className="headline-sm mt-4 text-ink">
             Guides, templates, <span className="px">workflows</span>.
           </h1>
-          <p className="mt-5 max-w-[62ch] text-lg leading-[1.55] text-muted">
-            Free to use, organized by what you&apos;re trying to get done. Open
-            one, copy the prompt, use it at work this week.
+          <p className="mx-auto mt-5 max-w-[52ch] text-lg leading-[1.55] text-muted">
+            Enter your name and email and the whole library unlocks, free.
+            Real examples, real reasoning, organized by what you&apos;re
+            trying to get done.
           </p>
         </div>
 
-        {/* Categories — the first one is the promoted "start here". */}
-        <div className="space-y-12">
-          {resourceCategories.map((category, i) => (
-            <section key={category.title}>
-              <h2 className="eyebrow mb-4 text-teal">{category.title}</h2>
-
-              <ul
-                className={`divide-y divide-line overflow-hidden bg-paper ${
-                  i === 0 ? "hard-teal" : "hard"
-                }`}
-              >
-                {category.items.map((item) => (
-                  <li key={item.title}>
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={
-                        item.href.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      className="group flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-surface sm:px-5"
-                    >
-                      <span
-                        aria-hidden
-                        className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] border border-line bg-surface text-lg"
-                      >
-                        {item.emoji}
-                      </span>
-                      <span className="flex-1 text-[15px] font-medium text-ink text-balance">
-                        {noOrphan(item.title)}
-                      </span>
-                      <span
-                        aria-hidden
-                        className="text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal"
-                      >
-                        →
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </section>
-          ))}
-        </div>
-
-        {/* Community CTA */}
-        <div
-          id="community"
-          className="hard mt-16 bg-teal px-6 py-9 sm:px-10 sm:py-11"
-        >
-          <p className="eyebrow text-white/70">The community</p>
-          <h2 className="mt-3 text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Get the full library plus a free community
-          </h2>
-          <p className="mt-3 max-w-xl text-[1.0625rem] leading-[1.55] text-white/80">
-            Trade practical AI workflows with other professionals working on the
-            same problems. Free to join.
+        {/* The one promoted element on this page, "start here". */}
+        <div className="hard-teal mx-auto max-w-md bg-paper p-6 sm:p-8">
+          <p className="eyebrow text-teal">Get instant access</p>
+          <p className="mt-2 text-sm text-muted">
+            Enter your details below to unlock the library.
           </p>
-          <a
-            href="https://www.skool.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-invert mt-7"
+
+          {/*
+            KIT (ConvertKit) FORM
+            Replace 0000000 below with the real Kit form ID (7 digits).
+            Find it: Kit → Grow → Landing Pages & Forms → this form → Embed →
+            "HTML" — copy the number out of the action URL.
+
+            After swapping the ID, also set the form's redirect in Kit itself
+            (Settings → after a visitor subscribes → redirect to a URL) to
+            https://briandoai.com/resources/library — that's what actually
+            sends people to the unlocked library. This page's code alone
+            can't do that part; it only submits the signup.
+          */}
+          <form
+            action="https://app.kit.com/forms/0000000/subscriptions"
+            method="post"
+            data-sv-form="0000000"
+            className="mt-6 space-y-4"
           >
-            Join the community, free →
-          </a>
+            <div>
+              <label
+                htmlFor="first_name"
+                className="text-sm font-medium text-ink"
+              >
+                First name
+              </label>
+              <input
+                id="first_name"
+                type="text"
+                name="fields[first_name]"
+                placeholder="Your name"
+                autoComplete="given-name"
+                required
+                className="mt-1.5 w-full rounded-[10px] border border-line bg-paper px-4 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="email" className="text-sm font-medium text-ink">
+                Email
+              </label>
+              <input
+                id="email"
+                type="email"
+                name="email_address"
+                placeholder="you@company.com"
+                autoComplete="email"
+                required
+                className="mt-1.5 w-full rounded-[10px] border border-line bg-paper px-4 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary w-full">
+              Get free access →
+            </button>
+          </form>
+
+          <p className="mt-4 text-center text-xs text-muted">
+            One practical AI workflow a week. No spam. Unsubscribe anytime.
+          </p>
         </div>
       </main>
 

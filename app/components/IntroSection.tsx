@@ -42,13 +42,13 @@ export function IntroSection() {
             </p>
             <p>
               Most AI content is either hype or a tool review. I&apos;d rather
-              show you the exact thing I typed, what came back, and why I&apos;d
-              change it. If you can use it at work tomorrow, it was worth
-              making.
+              show you how I&apos;d brief it, what came back, and where I let
+              it make the call. If you can use it at work tomorrow, it was
+              worth making.
             </p>
             <p className="text-ink">
-              No prompt engineering degree required. If you can write an email,
-              you can do all of this.
+              None of this needs special training. It&apos;s the same thing you
+              already do when you hand work to a colleague.
             </p>
           </div>
 
@@ -65,7 +65,7 @@ export function IntroSection() {
               Free community
             </a>
             <a
-              href="https://www.youtube.com/@briando"
+              href="https://www.youtube.com/@briandoai"
               target="_blank"
               rel="noopener noreferrer"
               className="hard-flat bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-white"

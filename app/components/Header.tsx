@@ -20,7 +20,7 @@ export function Header() {
               It's the zero-friction, self-serve ask — the button should point
               there everywhere, not split attention between two "free" doors. */}
           <a
-            href="https://www.youtube.com/@briando"
+            href="https://www.youtube.com/@briandoai"
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg px-2.5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"

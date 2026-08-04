@@ -123,8 +123,8 @@ export function Hero() {
           style={{ animationDelay: "180ms" }}
         >
           I make AI workflows for people whose job isn&apos;t AI: ops, finance,
-          HR, marketing, project management. Real tasks, the exact prompt I
-          typed, and what actually came back.
+          HR, marketing, project management. The work that keeps coming back,
+          how I&apos;d brief it, and where I&apos;d trust the judgment call.
         </p>
 
         <div
@@ -132,7 +132,7 @@ export function Hero() {
           style={{ animationDelay: "270ms" }}
         >
           <Link href="/resources" className="btn btn-primary">
-            Browse the free resource library →
+            Get the free resource library →
           </Link>
           <a href="#community" className="btn btn-secondary">
             Join the community
@@ -148,7 +148,7 @@ export function Hero() {
         <div className="hard flex flex-col items-center justify-center gap-3 bg-paper p-6 sm:flex-row sm:gap-4 sm:p-8">
           <div className="flex w-full max-w-xs flex-col gap-2 sm:w-auto">
             <span className="eyebrow mb-1 text-center text-[0.65rem]">
-              Work you already do
+              Work you redo every week
             </span>
             {workInputs.map((item) => (
               <span

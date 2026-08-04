@@ -9,8 +9,8 @@ const items: Item[] = [
     q: "Do I need to know how to code?",
     a: (
       <>
-        No. Everything here is typing in plain English. If you can write an
-        email to a coworker, you can write every prompt I show.
+        No. Everything here is plain English. If you can brief a coworker on
+        a task, you already have the skill this takes.
       </>
     ),
   },
@@ -59,8 +59,8 @@ const items: Item[] = [
     q: "Is the resource library actually free?",
     a: (
       <>
-        Yes. No email required to browse it. The community on Skool is free to
-        join too.
+        Yes. Drop in your name and email and the whole thing unlocks, no cost.
+        The community on Skool is free to join too.
       </>
     ),
   },
@@ -68,34 +68,36 @@ const items: Item[] = [
 
 export function Faq() {
   return (
-    <section className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
-      <div className="grid gap-10 md:grid-cols-12 md:gap-14">
-        <div className="md:col-span-4">
-          <p className="eyebrow">FAQ</p>
-          <h2 className="headline-sm mt-4 text-ink">
-            Questions people actually <span className="px">ask</span>.
-          </h2>
-        </div>
+    <section className="border-y border-line bg-surface">
+      <div className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
+        <div className="grid gap-10 md:grid-cols-12 md:gap-14">
+          <div className="md:col-span-4">
+            <p className="eyebrow">FAQ</p>
+            <h2 className="headline-sm mt-4 text-ink">
+              Questions people actually <span className="px">ask</span>.
+            </h2>
+          </div>
 
-        <div className="md:col-span-8">
-          {/* Hairlines between rows, no vertical rules — brand guide §14. */}
-          <div className="border-t border-line">
-            {items.map((item) => (
-              <details key={item.q} className="group border-b border-line">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[1.0625rem] font-semibold text-ink transition-colors hover:text-teal [&::-webkit-details-marker]:hidden">
-                  {item.q}
-                  <span
-                    aria-hidden
-                    className="shrink-0 text-xl leading-none text-teal transition-transform duration-200 group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                <div className="max-w-[70ch] pb-6 text-[1.0625rem] leading-[1.55] text-muted">
-                  {item.a}
-                </div>
-              </details>
-            ))}
+          <div className="md:col-span-8">
+            {/* Hairlines between rows, no vertical rules, brand guide §14. */}
+            <div className="border-t border-line">
+              {items.map((item) => (
+                <details key={item.q} className="group border-b border-line">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-[1.0625rem] font-semibold text-ink transition-colors hover:text-teal [&::-webkit-details-marker]:hidden">
+                    {item.q}
+                    <span
+                      aria-hidden
+                      className="shrink-0 text-xl leading-none text-teal transition-transform duration-200 group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <div className="max-w-[70ch] pb-6 text-[1.0625rem] leading-[1.55] text-muted">
+                    {item.a}
+                  </div>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </div>

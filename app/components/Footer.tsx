@@ -17,7 +17,7 @@ export function Footer() {
             Resources
           </Link>
           <a
-            href="https://www.youtube.com/@briando"
+            href="https://www.youtube.com/@briandoai"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted hover:text-ink"
