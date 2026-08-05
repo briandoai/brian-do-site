@@ -42,21 +42,13 @@ export default function ResourcesGatePage() {
           </p>
 
           {/*
-            KIT (ConvertKit) FORM
-            Replace 0000000 below with the real Kit form ID (7 digits).
-            Find it: Kit → Grow → Landing Pages & Forms → this form → Embed →
-            "HTML" — copy the number out of the action URL.
-
-            After swapping the ID, also set the form's redirect in Kit itself
-            (Settings → after a visitor subscribes → redirect to a URL) to
-            https://briandoai.com/resources/library — that's what actually
-            sends people to the unlocked library. This page's code alone
-            can't do that part; it only submits the signup.
+            KIT (ConvertKit) FORM — id 9757915, wired 2026-08-04.
+            Post-subscribe redirect to /resources/library is set in Kit itself.
           */}
           <form
-            action="https://app.kit.com/forms/0000000/subscriptions"
+            action="https://app.kit.com/forms/9757915/subscriptions"
             method="post"
-            data-sv-form="0000000"
+            data-sv-form="9757915"
             className="mt-6 space-y-4"
           >
             <div>
