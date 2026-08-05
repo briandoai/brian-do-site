@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "./Reveal";
 
 export function IntroSection() {
   return (
@@ -8,7 +9,7 @@ export function IntroSection() {
         {/* Photo — a transparent-background cutout sitting on a teal block, so
             it reads as part of the paper system rather than a pasted-in
             rectangle. Swap public/brian.png to change it; keep the cutout. */}
-        <div className="md:col-span-5">
+        <Reveal className="md:col-span-5">
           <div className="hard relative mx-auto aspect-square w-full max-w-sm overflow-hidden bg-teal">
             <Image
               src="/brian.png"
@@ -19,9 +20,9 @@ export function IntroSection() {
               className="h-full w-full object-cover object-top"
             />
           </div>
-        </div>
+        </Reveal>
 
-        <div className="md:col-span-7">
+        <Reveal delay={120} className="md:col-span-7">
           <p className="eyebrow">Brian Do</p>
 
           <h2 className="headline-sm mt-4 text-ink">
@@ -72,7 +73,7 @@ export function IntroSection() {
               Watch on YouTube
             </a>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

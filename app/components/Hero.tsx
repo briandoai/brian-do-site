@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FloatingCircles } from "./FloatingCircles";
 
 // The signature device, animated: one teal pixel word, typed and retyped.
 // "in half the time." → "in less time." → "in no time."
@@ -86,7 +87,9 @@ export function Hero() {
   const { pixelWord, rest } = useTypewriter();
 
   return (
-    <section className="mx-auto max-w-5xl px-5 pt-14 pb-16 sm:pt-20 sm:pb-24">
+    <section className="relative mx-auto max-w-5xl px-5 pt-14 pb-16 sm:pt-20 sm:pb-24">
+      <FloatingCircles />
+
       {/* No max-width here: the headline needs the section's full measure to
           keep its first line intact. Body copy sets its own narrower measure. */}
       <div>
