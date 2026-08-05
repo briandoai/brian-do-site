@@ -33,7 +33,7 @@ export default function LibraryPage() {
           </h1>
           <p className="mt-5 max-w-[62ch] text-lg leading-[1.55] text-muted">
             Free to use, organized by what you&apos;re trying to get done. Open
-            one, see how I&apos;d brief it, use it at work this week.
+            one, copy the exact prompt, use it at work this week.
           </p>
         </div>
 

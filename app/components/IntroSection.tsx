@@ -42,9 +42,8 @@ export function IntroSection() {
             </p>
             <p>
               Most AI content is either hype or a tool review. I&apos;d rather
-              show you how I&apos;d brief it, what came back, and where I let
-              it make the call. If you can use it at work tomorrow, it was
-              worth making.
+              give you the exact prompt I used and what came back. If you can
+              copy it and use it at work tomorrow, it was worth making.
             </p>
             <p className="text-ink">
               None of this needs special training. It&apos;s the same thing you

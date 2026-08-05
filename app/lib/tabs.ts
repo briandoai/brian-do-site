@@ -3,8 +3,8 @@
 //
 // A tablist is expected to behave like one control, not like N separate
 // buttons: arrows move between tabs, Home/End jump to the ends, and only the
-// selected tab sits in the page's tab order. Both the Handoff demo and the
-// resource explorer use this, so it lives here rather than being written twice.
+// selected tab sits in the page's tab order. The exact-prompts demo and the
+// resource explorer both use this, so it lives here rather than being written twice.
 // ---------------------------------------------------------------
 
 type ButtonRefs = { current: (HTMLButtonElement | null)[] };

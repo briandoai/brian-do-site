@@ -38,19 +38,9 @@ export const resourceCategories: ResourceCategory[] = [
       },
     ],
   },
-  // Systems sit above the one-off task workflows: the site leads on finding
-  // repeatable work and building it once, so the library's order should say
-  // the same thing. Task-level workflows still matter, they're just second.
-  {
-    title: "AI Productivity Systems",
-    items: [
-      { emoji: "🗓️", title: "The Weekly Work OS", href: "#" },
-      { emoji: "🎯", title: "Meeting Prep System", href: "#" },
-      { emoji: "📥", title: "The Inbox System", href: "#" },
-      { emoji: "📌", title: "Project Update System", href: "#" },
-      { emoji: "🧠", title: "Personal Knowledge System", href: "#" },
-    ],
-  },
+  // Task-level workflows lead: they're the direct, copy-this-prompt entry
+  // point. Systems are the next step up once a few individual prompts are
+  // already part of someone's week, so they sit second.
   {
     title: "AI Workflows for Work",
     items: [
@@ -59,6 +49,16 @@ export const resourceCategories: ResourceCategory[] = [
       { emoji: "📊", title: "Build a Slide Deck From Rough Notes", href: "#" },
       { emoji: "🔍", title: "Research a Topic Fast With AI", href: "#" },
       { emoji: "📈", title: "Analyze Data Without Touching a Formula", href: "#" },
+    ],
+  },
+  {
+    title: "AI Productivity Systems",
+    items: [
+      { emoji: "🗓️", title: "The Weekly Work OS", href: "#" },
+      { emoji: "🎯", title: "Meeting Prep System", href: "#" },
+      { emoji: "📥", title: "The Inbox System", href: "#" },
+      { emoji: "📌", title: "Project Update System", href: "#" },
+      { emoji: "🧠", title: "Personal Knowledge System", href: "#" },
     ],
   },
   {

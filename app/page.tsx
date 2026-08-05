@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { Hero } from "./components/Hero";
 import { IntroSection } from "./components/IntroSection";
-import { TheHandoff } from "./components/TheHandoff";
+import { ExactPrompts } from "./components/ExactPrompts";
 import { HowItWorks } from "./components/HowItWorks";
 import { ResourceExplorer } from "./components/ResourceExplorer";
 import { Faq } from "./components/Faq";
@@ -18,14 +18,14 @@ export default function Home() {
 
         <IntroSection />
 
-        {/* Overview before deep dive: HowItWorks is the map, TheHandoff is
+        {/* Overview before deep dive: HowItWorks is the map, ExactPrompts is
             step 02 up close. The other way round meant the three-step summary
             landed as a restatement of what had just been taught in detail.
             Backgrounds alternate paper/surface so no two sections butt up
             against each other on the same ground. */}
         <HowItWorks />
 
-        <TheHandoff />
+        <ExactPrompts />
 
         {/* ---------------- Resource library preview ---------------- */}
         <section>
