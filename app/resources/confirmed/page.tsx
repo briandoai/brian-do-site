@@ -20,8 +20,9 @@ export default function ResourcesConfirmedPage() {
             You&apos;re <span className="px">in</span>.
           </h1>
           <p className="mx-auto mt-5 max-w-[52ch] text-lg leading-[1.55] text-muted">
-            Your access is confirmed — the whole library unlocks below,
-            AI Starter Kit included.
+            One more thing — check your inbox and confirm your email if Kit
+            asks you to. Once that&apos;s done, the whole library is unlocked
+            below, AI Starter Kit included.
           </p>
         </div>
 

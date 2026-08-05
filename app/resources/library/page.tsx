@@ -48,36 +48,57 @@ export default function LibraryPage() {
                   i === 0 ? "hard-teal" : "hard"
                 }`}
               >
-                {category.items.map((item) => (
-                  <li key={item.title}>
-                    <a
-                      href={item.href}
-                      target={item.href.startsWith("http") ? "_blank" : undefined}
-                      rel={
-                        item.href.startsWith("http")
-                          ? "noopener noreferrer"
-                          : undefined
-                      }
-                      className="group flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-surface sm:px-5"
-                    >
-                      <span
-                        aria-hidden
-                        className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] border border-line bg-surface text-lg"
+                {category.items.map((item) =>
+                  item.comingSoon ? (
+                    <li key={item.title}>
+                      <div className="flex items-center gap-4 px-4 py-3.5 opacity-60 sm:px-5">
+                        <span
+                          aria-hidden
+                          className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] border border-line bg-surface text-lg"
+                        >
+                          {item.emoji}
+                        </span>
+                        <span className="flex-1 text-[15px] font-medium text-ink text-balance">
+                          {noOrphan(item.title)}
+                        </span>
+                        <span className="eyebrow shrink-0 text-muted">
+                          Coming soon
+                        </span>
+                      </div>
+                    </li>
+                  ) : (
+                    <li key={item.title}>
+                      <a
+                        href={item.href}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="group flex items-center gap-4 px-4 py-3.5 transition-colors hover:bg-surface sm:px-5"
                       >
-                        {item.emoji}
-                      </span>
-                      <span className="flex-1 text-[15px] font-medium text-ink text-balance">
-                        {noOrphan(item.title)}
-                      </span>
-                      <span
-                        aria-hidden
-                        className="text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal"
-                      >
-                        →
-                      </span>
-                    </a>
-                  </li>
-                ))}
+                        <span
+                          aria-hidden
+                          className="grid h-10 w-10 shrink-0 place-items-center rounded-[10px] border border-line bg-surface text-lg"
+                        >
+                          {item.emoji}
+                        </span>
+                        <span className="flex-1 text-[15px] font-medium text-ink text-balance">
+                          {noOrphan(item.title)}
+                        </span>
+                        <span
+                          aria-hidden
+                          className="text-muted transition-all group-hover:translate-x-0.5 group-hover:text-teal"
+                        >
+                          →
+                        </span>
+                      </a>
+                    </li>
+                  )
+                )}
               </ul>
             </section>
           ))}
