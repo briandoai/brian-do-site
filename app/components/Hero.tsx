@@ -123,8 +123,8 @@ export function Hero() {
           style={{ animationDelay: "180ms" }}
         >
           I make AI workflows for people whose job isn&apos;t AI: ops, finance,
-          HR, marketing, project management. The work that keeps coming back,
-          how I&apos;d brief it, and where I&apos;d trust the judgment call.
+          HR, marketing, project management. The exact prompt I used, copy-paste
+          ready, plus what it actually produced.
         </p>
 
         <div

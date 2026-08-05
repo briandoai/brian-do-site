@@ -5,36 +5,18 @@ import Link from "next/link";
 const steps = [
   {
     n: "01",
-    title: "Spot the repeat",
-    body: "Find the work that comes back every week and lands the same shape every time. That's what's worth building once.",
+    title: "Browse the library",
+    body: "Find the prompt for the job you're stuck on: an email, an update, a report you rebuild every month.",
   },
   {
     n: "02",
-    title: "Brief it once",
-    body: "Get it right on something real rather than a pretend example. There's a method for this, and it's the next section down.",
+    title: "Copy the prompt",
+    body: "Nothing to learn first. It's already written, just swap in your own details.",
   },
   {
     n: "03",
-    title: "Make it repeatable",
-    body: "Save the brief, run it again next month, and hand it to someone else on your team. That's the point where the hours actually come back.",
-  },
-];
-
-// The tests are step 01 in practice. Most people can write a decent brief once
-// they're shown how; what they can't do yet is look at their own week and see
-// which parts of it are mechanical.
-const tests = [
-  {
-    title: "It comes back",
-    body: "Weekly, monthly, or every time a request lands. Once is a task. Again is a process.",
-  },
-  {
-    title: "It's the same shape",
-    body: "Same sort of inputs going in, same format coming out, even when the details change every time.",
-  },
-  {
-    title: "You're the bottleneck, not the value",
-    body: "You're copying, reformatting, and chasing people for updates. The judgment part is real but small, and the mechanical part is most of it.",
+    title: "Paste it into your tool",
+    body: "ChatGPT, Claude, or Gemini, whatever your company already gives you. You'll have a real draft in the time it takes to read this.",
   },
 ];
 
@@ -44,13 +26,12 @@ export function HowItWorks() {
       <div className="max-w-2xl">
         <p className="eyebrow">How it works</p>
         <h2 className="headline-sm mt-4 text-ink">
-          Find the repeat, build it <span className="px">once</span>.
+          Copy it, paste it, <span className="px">done</span>.
         </h2>
         <p className="mt-5 max-w-[62ch] text-lg leading-[1.55] text-muted">
-          Most jobs hide a few hours a week of work that&apos;s mechanical
-          rather than hard. AI is turning into one of those things people just
-          expect you to know, the way spreadsheets did. Better to pick it up on
-          your own schedule than get caught without it.
+          No new skill to learn first. Every resource here is a prompt you can
+          copy, not a framework to master. Paste it in, get a real draft, and
+          adjust from there.
         </p>
       </div>
 
@@ -69,27 +50,6 @@ export function HowItWorks() {
             </p>
           </div>
         ))}
-      </div>
-
-      {/* Step 01 is the one people get stuck on, so it gets the extra room. */}
-      <div className="hard-flat mt-8 bg-paper p-6 sm:p-7">
-        <p className="eyebrow text-teal">Spotting one</p>
-        <p className="mt-3 max-w-[62ch] text-[15px] leading-[1.55] text-muted">
-          Three questions to run against your own week. Yes to all three and
-          it&apos;s worth building once.
-        </p>
-        <ul className="mt-6 grid gap-5 sm:grid-cols-3">
-          {tests.map((test) => (
-            <li key={test.title}>
-              <h3 className="text-[15px] font-semibold text-ink">
-                {test.title}
-              </h3>
-              <p className="mt-1.5 text-[14.5px] leading-[1.55] text-muted">
-                {test.body}
-              </p>
-            </li>
-          ))}
-        </ul>
       </div>
 
       <Link href="/resources" className="btn btn-primary mt-9">
