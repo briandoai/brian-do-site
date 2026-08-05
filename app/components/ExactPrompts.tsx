@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { handleTabKeys } from "../lib/tabs";
+import { Reveal } from "./Reveal";
 
 // The site's actual differentiator: not theory, the exact prompt you can
 // copy and the real output it produced. Four ordinary jobs, each with a
@@ -59,7 +60,7 @@ export function ExactPrompts() {
   return (
     <section className="border-y border-line bg-surface">
       <div className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="eyebrow">Exact prompts</p>
           <h2 className="headline-sm mt-4 text-ink">
             Copy the <span className="px">prompt</span>. Get the output.
@@ -70,9 +71,9 @@ export function ExactPrompts() {
             into ChatGPT, Claude, or Gemini, and you&apos;ll get something
             close to what&apos;s on the right.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-12">
+        <Reveal delay={120} className="mt-12">
           <p className="eyebrow text-teal">In practice</p>
           <p className="mt-3 max-w-[62ch] text-[1.0625rem] leading-[1.55] text-muted">
             Four ordinary jobs, four real prompts. The last one repeats every
@@ -111,8 +112,8 @@ export function ExactPrompts() {
           </div>
 
           {/* All panels share one grid cell so the section is always as tall
-              as the longest example; switching cross-fades instead of
-              shunting everything below it up the page. */}
+              as the longest example; switching cross-fades with a small
+              slide instead of shunting everything below it up the page. */}
           <div className="mt-5 grid">
             {examples.map((example, index) => (
               <div
@@ -121,8 +122,10 @@ export function ExactPrompts() {
                 id={`prompt-panel-${index}`}
                 aria-labelledby={`prompt-tab-${index}`}
                 tabIndex={index === selected ? 0 : -1}
-                className={`col-start-1 row-start-1 grid gap-5 transition-opacity duration-300 md:grid-cols-5 motion-reduce:transition-none ${
-                  index === selected ? "opacity-100" : "invisible opacity-0"
+                className={`col-start-1 row-start-1 grid gap-5 transition-[opacity,transform] duration-300 md:grid-cols-5 motion-reduce:transition-none ${
+                  index === selected
+                    ? "translate-x-0 opacity-100"
+                    : "invisible translate-x-2 opacity-0"
                 }`}
               >
                 <div className="md:col-span-3">
@@ -156,7 +159,7 @@ export function ExactPrompts() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

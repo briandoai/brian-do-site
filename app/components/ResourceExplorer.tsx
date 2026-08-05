@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { resourceCategories } from "../lib/resources";
 import { noOrphan } from "../lib/text";
 import { handleTabKeys } from "../lib/tabs";
+import { Reveal } from "./Reveal";
 
 // Only ever show three rows, even for the five-item categories. Every category
 // has at least three, so the card's height stays put as you move between them
@@ -18,7 +19,7 @@ export function ResourceExplorer() {
 
   return (
     <div className="grid items-start gap-10 md:grid-cols-12 md:gap-14">
-      <div className="md:col-span-6">
+      <Reveal className="md:col-span-6">
         <p className="eyebrow">Free resource library</p>
         <h2 className="headline-sm mt-4 text-ink">
           Guides, templates, and real <span className="px">workflows</span>.
@@ -70,10 +71,10 @@ export function ResourceExplorer() {
             </button>
           ))}
         </div>
-      </div>
+      </Reveal>
 
       {/* The one promoted element in this section: the panel you're exploring. */}
-      <div className="md:col-span-6">
+      <Reveal delay={120} className="md:col-span-6">
         <div
           id="category-panel"
           role="tabpanel"
@@ -93,8 +94,10 @@ export function ResourceExplorer() {
               return (
                 <div
                   key={category.title}
-                  className={`col-start-1 row-start-1 transition-opacity duration-300 motion-reduce:transition-none ${
-                    i === selected ? "opacity-100" : "invisible opacity-0"
+                  className={`col-start-1 row-start-1 transition-[opacity,transform] duration-300 motion-reduce:transition-none ${
+                    i === selected
+                      ? "translate-x-0 opacity-100"
+                      : "invisible translate-x-2 opacity-0"
                   }`}
                 >
                   <ul className="space-y-2.5">
@@ -110,7 +113,7 @@ export function ResourceExplorer() {
                               ? "noopener noreferrer"
                               : undefined
                           }
-                          className="hard-flat group flex items-center gap-3.5 bg-surface px-4 py-3 transition-colors hover:bg-white"
+                          className="hard-flat row-hover group flex items-center gap-3.5 bg-surface px-4 py-3 transition-colors hover:bg-white"
                         >
                           <span
                             aria-hidden
@@ -142,7 +145,7 @@ export function ResourceExplorer() {
             })}
           </div>
         </div>
-      </div>
+      </Reveal>
     </div>
   );
 }

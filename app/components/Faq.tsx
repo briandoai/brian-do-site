@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "./Reveal";
 
 type Item = { q: string; a: ReactNode };
 
@@ -71,14 +72,14 @@ export function Faq() {
     <section className="border-y border-line bg-surface">
       <div className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
         <div className="grid gap-10 md:grid-cols-12 md:gap-14">
-          <div className="md:col-span-4">
+          <Reveal className="md:col-span-4">
             <p className="eyebrow">FAQ</p>
             <h2 className="headline-sm mt-4 text-ink">
               Questions people actually <span className="px">ask</span>.
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="md:col-span-8">
+          <Reveal delay={120} className="md:col-span-8">
             {/* Hairlines between rows, no vertical rules, brand guide §14. */}
             <div className="border-t border-line">
               {items.map((item) => (
@@ -98,7 +99,7 @@ export function Faq() {
                 </details>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

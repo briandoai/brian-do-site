@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "./Reveal";
 
 // A genuine sequence, step 1 has to happen before step 2, so numbering it is
 // earning its keep here, unlike a decorative 01/02/03 on unordered content.
@@ -23,7 +24,7 @@ const steps = [
 export function HowItWorks() {
   return (
     <section id="plan" className="mx-auto max-w-5xl px-5 py-16 sm:py-20">
-      <div className="max-w-2xl">
+      <Reveal className="max-w-2xl">
         <p className="eyebrow">How it works</p>
         <h2 className="headline-sm mt-4 text-ink">
           Copy it, paste it, <span className="px">done</span>.
@@ -33,22 +34,25 @@ export function HowItWorks() {
           copy, not a framework to master. Paste it in, get a real draft, and
           adjust from there.
         </p>
-      </div>
+      </Reveal>
 
       <div className="mt-10 grid gap-5 sm:grid-cols-3">
         {steps.map((step, i) => (
-          <div
-            key={step.n}
-            className={`${i === 0 ? "hard-teal" : "hard"} bg-paper p-6`}
-          >
-            <p className={`eyebrow ${i === 0 ? "text-teal" : ""}`}>{step.n}</p>
-            <h3 className="mt-3 text-lg font-semibold text-ink">
-              {step.title}
-            </h3>
-            <p className="mt-2 text-[15px] leading-[1.55] text-muted">
-              {step.body}
-            </p>
-          </div>
+          <Reveal key={step.n} delay={i * 90}>
+            <div
+              className={`${i === 0 ? "hard-teal" : "hard"} h-full bg-paper p-6`}
+            >
+              <p className={`eyebrow ${i === 0 ? "text-teal" : ""}`}>
+                {step.n}
+              </p>
+              <h3 className="mt-3 text-lg font-semibold text-ink">
+                {step.title}
+              </h3>
+              <p className="mt-2 text-[15px] leading-[1.55] text-muted">
+                {step.body}
+              </p>
+            </div>
+          </Reveal>
         ))}
       </div>
 

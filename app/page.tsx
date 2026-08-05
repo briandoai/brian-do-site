@@ -7,6 +7,7 @@ import { ExactPrompts } from "./components/ExactPrompts";
 import { HowItWorks } from "./components/HowItWorks";
 import { ResourceExplorer } from "./components/ResourceExplorer";
 import { Faq } from "./components/Faq";
+import { Reveal } from "./components/Reveal";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
         {/* ---------------- Community CTA ---------------- */}
         <section id="community" className="bg-paper">
           <div className="mx-auto max-w-5xl px-5 py-16 sm:py-24">
-            <div className="hard bg-teal px-8 py-12 text-center sm:px-12 sm:py-14">
+            <Reveal className="hard bg-teal px-8 py-12 text-center sm:px-12 sm:py-14">
               {/* Soft open: the group isn't stood up yet, so this points at
                   the same email list rather than a dead Skool homepage. */}
               <p className="eyebrow text-white/70">Opening soon</p>
@@ -60,7 +61,7 @@ export default function Home() {
                 Same signup as the library. I&apos;ll send the invite when
                 it&apos;s open.
               </p>
-            </div>
+            </Reveal>
           </div>
         </section>
       </main>
