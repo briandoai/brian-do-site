@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { resourceCategories } from "../../lib/resources";
+import { resourceCategories, getResourceHref } from "../../lib/resources";
 import { noOrphan } from "../../lib/text";
 
 export const metadata: Metadata = {
@@ -69,12 +69,14 @@ export default function LibraryPage() {
                   ) : (
                     <li key={item.title}>
                       <a
-                        href={item.href}
+                        href={getResourceHref(item)}
                         target={
-                          item.href.startsWith("http") ? "_blank" : undefined
+                          getResourceHref(item).startsWith("http")
+                            ? "_blank"
+                            : undefined
                         }
                         rel={
-                          item.href.startsWith("http")
+                          getResourceHref(item).startsWith("http")
                             ? "noopener noreferrer"
                             : undefined
                         }
