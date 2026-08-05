@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { ResourceSignupForm } from "../components/ResourceSignupForm";
 
 export const metadata: Metadata = {
   title: "Resource Library",
@@ -43,51 +44,14 @@ export default function ResourcesGatePage() {
 
           {/*
             KIT (ConvertKit) FORM — id 9757915, wired 2026-08-04.
-            Post-subscribe redirect to /resources/library is set in Kit itself.
+            Post-subscribe redirect to /resources/confirmed is set in Kit
+            itself. Shared form component — see ResourceSignupForm.tsx.
+            No resourceSlug here: this is the generic gate, not a specific
+            resource's landing page.
           */}
-          <form
-            action="https://app.kit.com/forms/9757915/subscriptions"
-            method="post"
-            data-sv-form="9757915"
-            className="mt-6 space-y-4"
-          >
-            <div>
-              <label
-                htmlFor="first_name"
-                className="text-sm font-medium text-ink"
-              >
-                First name
-              </label>
-              <input
-                id="first_name"
-                type="text"
-                name="fields[first_name]"
-                placeholder="Your name"
-                autoComplete="given-name"
-                required
-                className="mt-1.5 w-full rounded-[10px] border border-line bg-paper px-4 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="text-sm font-medium text-ink">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                name="email_address"
-                placeholder="you@company.com"
-                autoComplete="email"
-                required
-                className="mt-1.5 w-full rounded-[10px] border border-line bg-paper px-4 py-2.5 text-[15px] text-ink placeholder:text-muted/70 focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/25"
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary w-full">
-              Get free access →
-            </button>
-          </form>
+          <div className="mt-6">
+            <ResourceSignupForm />
+          </div>
 
           <p className="mt-4 text-center text-xs text-muted">
             One practical AI workflow a week. No spam. Unsubscribe anytime.
