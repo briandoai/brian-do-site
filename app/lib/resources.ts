@@ -81,19 +81,8 @@ export const resourceCategories: ResourceCategory[] = [
       },
       {
         emoji: "🧭",
-        title: "Stop Using AI Randomly: the 20-minute setup",
-        slug: "spot-the-work-worth-automating",
-        page: {
-          intro:
-            "Most people try AI on the wrong task first, decide it's not ready, and quit. The problem usually isn't the tool — it's the pick. Three questions tell you what's actually worth handing over.",
-          steps: [
-            "Does it come back? Weekly, monthly, or every time a request lands.",
-            "Is it the same shape every time? Same sort of inputs, same format out, even when the details change.",
-            "Are you the bottleneck rather than the value? Copying, reformatting, and chasing count as bottleneck work — deciding something doesn't.",
-          ],
-          tip: "Three yeses, build it once. Any single no, do it by hand. Run this against your calendar for the last month — you'll find two or three immediately.",
-          source: "Week 3 — How to Spot the Work That's Actually Worth Automating",
-        },
+        title: "Spot the Work Worth Automating (3 questions)",
+        href: "/spot-the-work-worth-automating.pdf",
       },
     ],
   },
@@ -103,6 +92,7 @@ export const resourceCategories: ResourceCategory[] = [
   {
     title: "AI Workflows for Work",
     items: [
+      { emoji: "🤝", title: "The Handoff: the 4 things AI needs from you", href: "/the-handoff.pdf" },
       { emoji: "📧", title: "Turn a Messy Email Into a Clean One", href: "#", comingSoon: true },
       { emoji: "📝", title: "Messy Notes → Clean Weekly Update", href: "#", comingSoon: true },
       { emoji: "📊", title: "Build a Slide Deck From Rough Notes", href: "#", comingSoon: true },
@@ -113,6 +103,8 @@ export const resourceCategories: ResourceCategory[] = [
   {
     title: "AI Productivity Systems",
     items: [
+      { emoji: "🔁", title: "Build It Once: turn a result into a workflow", href: "/build-it-once.pdf" },
+      { emoji: "⚙️", title: "The One-Time Setup (projects, gems, and standing context)", href: "/the-one-time-setup.pdf" },
       { emoji: "🗓️", title: "The Weekly Work OS", href: "#", comingSoon: true },
       { emoji: "🎯", title: "Meeting Prep System", href: "#", comingSoon: true },
       { emoji: "📥", title: "The Inbox System", href: "#", comingSoon: true },
@@ -125,7 +117,7 @@ export const resourceCategories: ResourceCategory[] = [
     items: [
       { emoji: "🤝", title: "Share AI Workflows With Your Team", href: "#", comingSoon: true },
       { emoji: "🔁", title: "Build AI Habits That Actually Stick", href: "#", comingSoon: true },
-      { emoji: "🛡️", title: "Use AI Safely at Work: What Not to Paste", href: "#", comingSoon: true },
+      { emoji: "🛡️", title: "Never Hand Over: 3 tests before you delegate to AI", href: "/never-hand-over.pdf" },
       { emoji: "⭐", title: "Get Visibility by Improving Team Workflows", href: "#", comingSoon: true },
     ],
   },
