@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { resourceCategories } from "../lib/resources";
+import { resourceCategories, getResourceHref } from "../lib/resources";
 import { noOrphan } from "../lib/text";
 import { handleTabKeys } from "../lib/tabs";
 import { Reveal } from "./Reveal";
@@ -101,38 +101,59 @@ export function ResourceExplorer() {
                   }`}
                 >
                   <ul className="space-y-2.5">
-                    {category.items.slice(0, PREVIEW_COUNT).map((item) => (
-                      <li key={item.title}>
-                        <a
-                          href={item.href}
-                          target={
-                            item.href.startsWith("http") ? "_blank" : undefined
-                          }
-                          rel={
-                            item.href.startsWith("http")
-                              ? "noopener noreferrer"
-                              : undefined
-                          }
-                          className="hard-flat row-hover group flex items-center gap-3.5 bg-surface px-4 py-3 transition-colors hover:bg-white"
-                        >
-                          <span
-                            aria-hidden
-                            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-paper text-base"
+                    {category.items.slice(0, PREVIEW_COUNT).map((item) =>
+                      item.comingSoon ? (
+                        <li key={item.title}>
+                          <div className="hard-flat flex items-center gap-3.5 bg-surface px-4 py-3 opacity-60">
+                            <span
+                              aria-hidden
+                              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-paper text-base"
+                            >
+                              {item.emoji}
+                            </span>
+                            <span className="flex-1 text-[14.5px] font-medium text-balance text-ink">
+                              {noOrphan(item.title)}
+                            </span>
+                            <span className="eyebrow shrink-0 text-muted">
+                              Soon
+                            </span>
+                          </div>
+                        </li>
+                      ) : (
+                        <li key={item.title}>
+                          <a
+                            href={getResourceHref(item)}
+                            target={
+                              getResourceHref(item).startsWith("http")
+                                ? "_blank"
+                                : undefined
+                            }
+                            rel={
+                              getResourceHref(item).startsWith("http")
+                                ? "noopener noreferrer"
+                                : undefined
+                            }
+                            className="hard-flat row-hover group flex items-center gap-3.5 bg-surface px-4 py-3 transition-colors hover:bg-white"
                           >
-                            {item.emoji}
-                          </span>
-                          <span className="flex-1 text-[14.5px] font-medium text-balance text-ink">
-                            {noOrphan(item.title)}
-                          </span>
-                          <span
-                            aria-hidden
-                            className="text-muted transition-transform group-hover:translate-x-0.5"
-                          >
-                            →
-                          </span>
-                        </a>
-                      </li>
-                    ))}
+                            <span
+                              aria-hidden
+                              className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-line bg-paper text-base"
+                            >
+                              {item.emoji}
+                            </span>
+                            <span className="flex-1 text-[14.5px] font-medium text-balance text-ink">
+                              {noOrphan(item.title)}
+                            </span>
+                            <span
+                              aria-hidden
+                              className="text-muted transition-transform group-hover:translate-x-0.5"
+                            >
+                              →
+                            </span>
+                          </a>
+                        </li>
+                      )
+                    )}
                   </ul>
 
                   <p className="mt-5 text-sm text-muted">
