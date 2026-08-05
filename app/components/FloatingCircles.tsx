@@ -6,12 +6,12 @@
 // Decorative only — aria-hidden, no pointer events, static (no drift) when
 // the reader has asked for reduced motion.
 const circles = [
-  { size: 120, top: "4%", left: "6%", fill: "var(--teal)", opacity: 0.07, variant: "a", duration: "34s", delay: "0s" },
-  { size: 60, top: "62%", left: "2%", fill: "none", stroke: "var(--orange)", opacity: 0.35, variant: "b", duration: "22s", delay: "-4s" },
-  { size: 90, top: "10%", left: "88%", fill: "none", stroke: "var(--line)", opacity: 0.9, variant: "c", duration: "28s", delay: "-9s" },
-  { size: 40, top: "40%", left: "94%", fill: "var(--teal)", opacity: 0.09, variant: "b", duration: "19s", delay: "-2s" },
-  { size: 26, top: "80%", left: "80%", fill: "var(--orange)", opacity: 0.16, variant: "a", duration: "25s", delay: "-14s" },
-  { size: 70, top: "78%", left: "40%", fill: "none", stroke: "var(--teal)", opacity: 0.18, variant: "c", duration: "31s", delay: "-6s" },
+  { size: 120, top: "4%", left: "6%", fill: "var(--teal)", opacity: 0.07, variant: "a", duration: "15s", delay: "0s" },
+  { size: 60, top: "62%", left: "2%", fill: "none", stroke: "var(--orange)", opacity: 0.35, variant: "b", duration: "11s", delay: "-4s" },
+  { size: 90, top: "10%", left: "88%", fill: "none", stroke: "var(--line)", opacity: 0.9, variant: "c", duration: "13s", delay: "-9s" },
+  { size: 40, top: "40%", left: "94%", fill: "var(--teal)", opacity: 0.09, variant: "b", duration: "9s", delay: "-2s" },
+  { size: 26, top: "80%", left: "80%", fill: "var(--orange)", opacity: 0.16, variant: "a", duration: "12s", delay: "-6s" },
+  { size: 70, top: "78%", left: "40%", fill: "none", stroke: "var(--teal)", opacity: 0.18, variant: "c", duration: "14s", delay: "-3s" },
 ];
 
 export function FloatingCircles() {
